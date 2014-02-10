@@ -86,6 +86,33 @@ if (nameDistro == "Ubuntu Eee")
 
 #endif
 
+if (nameDistro == "Chitwanix")
+{
+    if (isarch64)
+    {
+        cpuarch = "amd64";
+    }
+    else
+    {
+        cpuarch = "i386";
+    }
+    {
+        downloadfile(fileFilterNetDir(QStringList() <<
+        "http://releases.chitwanix.com/"+relname <<
+        "http://releases.chitwanix.com/releases/"+relname <<
+        "ftp://releases.chitwanix.com/releases/.pool/" <<
+        , 524288000, 1048576000, QList<QRegExp>() <<
+        QRegExp(".iso$", Qt::CaseInsensitive) <<
+        QRegExp(cpuarch+".iso$", Qt::CaseInsensitive) <<
+        QRegExp("desktop-"+cpuarch+".iso$", Qt::CaseInsensitive) <<
+        QRegExp("desktop-"+cpuarch+".iso$", Qt::CaseInsensitive) <<
+        QRegExp("chitwanix\\S{0,}"+relname+"\\S{0,}desktop\\S{0,}"+cpuarch+"\\S{0,}.iso$", Qt::CaseInsensitive) <<
+        QRegExp("chitwanix-"+relname+"\\S{0,}-desktop-"+cpuarch+".iso$", Qt::CaseInsensitive)
+        ), isotmpf);
+        extractiso(isotmpf, targetPath);
+    }
+   
+}
 #ifdef ELIVE
 
 if (nameDistro == "Elive")
