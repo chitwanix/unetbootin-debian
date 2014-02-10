@@ -109,6 +109,12 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 //#define USBINSTALL
 #endif
 
+#ifdef Chitwanix
+#define UNETBOOTINB "Chitwanix OS Installer"
+#define NOMANUAL
+#define NOFLOPPY
+//#define USBINSTALL
+#endif
 class customver : public QObject
 {
 	Q_OBJECT
